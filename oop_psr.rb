@@ -12,7 +12,6 @@ end
 class Human < Player
   def pick_item
     begin
-      system "clear"
       puts "Please pick one: (p, r, s)"
       puts 
       self.pick = gets.chomp.downcase
@@ -66,14 +65,13 @@ class Game
     @computer = Computer.new("Computer")
   end
   
-  def intro_message
+  def self.intro_message
     system 'clear'
     puts "Welcome! Let's play paper, scissor and rock game!"
     puts "p = Paper, r = Rock, S = scissor"
   end
   
   def play
-    intro_message
     human.pick_item
     computer.pick_item
     compare
@@ -106,4 +104,5 @@ class Game
   
 end
 
+Game.intro_message
 Game.new.play
